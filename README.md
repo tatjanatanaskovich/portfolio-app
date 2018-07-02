@@ -1,16 +1,16 @@
 # PORTFOLIO APP
 
-This is a Portfolio Ruby on Rails application.
+This is a repository for Portfolio application built in Ruby on Rails.
 
 
 
 * Ruby version:
-+ 2.5.1
+  2.5.1
 
 * Rails version:
-+ 5.2.0
+  5.2.0
 
 * Database:
-+ Postgresql
+  Postgresql
 
 
