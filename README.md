@@ -1,8 +1,8 @@
 # PORTFOLIO APP
 
-+>This is a Portfolio Ruby on Rails application.
+This is a Portfolio Ruby on Rails application.
 
-+###
+
 
 * Ruby version:
 + 2.5.1
