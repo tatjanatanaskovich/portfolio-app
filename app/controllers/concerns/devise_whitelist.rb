@@ -1,0 +1,3 @@
+module DeviseWhitelist 
+
+end
