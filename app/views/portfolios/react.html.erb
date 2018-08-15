@@ -1,6 +1,6 @@
 <h1>React Portfolio Items</h1>
 
-<%= link_to "Create New Item", new_portfolio_path %>
+<%= link_to "Create New Item", new_portfolio_path if logged_in?(:site_admin)%>
 
 <% @react_portfolio_items.each do |portfolio_item| %>
   <p><%= link_to portfolio_item.title, portfolio_show_path(portfolio_item) %></p>
@@ -9,6 +9,6 @@
 
   <!-- Small protection so that everything works evan if there is no thumbnail image. Byepassing nil error. -->
   <%= image_tag portfolio_item.thumb_image unless portfolio_item.thumb_image.nil? %>
-  <%= link_to "Edit", edit_portfolio_path(portfolio_item.id) %>
-  <%= link_to "Delete Portfolio Item", portfolio_path(portfolio_item.id), method: :delete, data: {confirm: "Are you sure?"} %>
+  <%= link_to "Edit", edit_portfolio_path(portfolio_item.id) if logged_in?(:site_admin)%>
+  <%= link_to "Delete Portfolio Item", portfolio_path(portfolio_item.id), method: :delete, data: {confirm: "Are you sure?"} if logged_in?(:site_admin)%>
  <% end %>
