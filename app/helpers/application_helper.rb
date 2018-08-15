@@ -17,4 +17,7 @@ module ApplicationHelper
     end 
   end
 
+  def copyright_generator
+    ViewToolByTatjana::Renderer.copyright 'Tatjana Tanaskovic', 'All rights reserved'
+  end
 end
