@@ -8,6 +8,7 @@ class Portfolio < ApplicationRecord
   def self.react
     where(subtitle: 'React')
   end
+  
   def self.by_position
     order("position ASC")
   end
