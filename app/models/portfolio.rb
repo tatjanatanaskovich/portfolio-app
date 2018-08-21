@@ -8,6 +8,9 @@ class Portfolio < ApplicationRecord
   def self.react
     where(subtitle: 'React')
   end
+  def self.by_position
+    order("position ASC")
+  end
 
   scope :ruby_on_rails_portfolio_items, -> { where(subtitle: 'Ruby on Rails') }
 
@@ -15,7 +18,7 @@ class Portfolio < ApplicationRecord
 
   def set_defaults
     self.main_image ||= Placeholder.image_generator(height: '600', width: '400')
-    self.thumb_image ||= Placeholder.image_generator(height: '350', width: '250')
+    self.thumb_image ||= Placeholder.image_generator(height: '350', width: '200')
   end
 
 end
