@@ -1,7 +1,7 @@
 <div class="container portfolio-container">
   <div class="row">
     <div class="col-md-7 col-sm-12">
-      <%= image_tag @portfolio_item.main_image.url, class: 'card-img-top', alt: 'Card image cap', width: '100%'%>
+      <%= image_tag portfolio_img(@portfolio_item.main_image.url, 'main'), class: 'card-img-top', alt: 'Card image cap', width: '100%'%>
     </div>
 
     <div class="col-md-5 col-sm-12">
