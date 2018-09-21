@@ -1,7 +1,12 @@
 <header class="blog-header py-3">
   <div class="container">
-    <h1 class="display-4">My Blog</h1>
-    <p class="lead blog-description">Example</p>
-    <%= link_to 'Write a New Blog', new_blog_path if logged_in?(:site_admin) %>
+    <h1 class="display-4">Software Developer Blog</h1>
+    <p class="lead blog-description">I'm writing about different topics from my development journey.</p>
+    <span>
+      <%= link_to 'Write a New Blog', new_blog_path if logged_in?(:site_admin) %>
+    </span>
+    <span>
+       <%= link_to 'Topics', topics_path %>
+    </span>
   </div>
 </header>
