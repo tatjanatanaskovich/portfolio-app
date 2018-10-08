@@ -1,6 +1,6 @@
 # PORTFOLIO APP
 
-This is a repository for my Portfolio application built in Ruby on Rails.
+This is my Portfolio Application built in Ruby on Rails. It is a dynamic Web Application whose content can be managed by its Admin User / Owner. 
 
 ## FEATURES:
 
@@ -24,11 +24,12 @@ This is a repository for my Portfolio application built in Ruby on Rails.
 * All users can see the content of all pages.
 * User have to register and login to post comments on Blog posts.
 
+### Versions:
 
-* Ruby version:
+* Ruby:
   2.5.1
 
-* Rails version:
+* Rails:
   5.2.0
 
 * Database:
