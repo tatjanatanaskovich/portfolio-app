@@ -30,7 +30,7 @@ This is my Portfolio Application built in Ruby on Rails. It is a dynamic Web App
   2.5.1
 
 * Rails:
-  5.2.0
+  5.2.1
 
 * Database:
   Postgresql
