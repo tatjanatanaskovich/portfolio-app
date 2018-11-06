@@ -4,7 +4,6 @@ class BlogsController < ApplicationController
   layout "blog"
   access all: [:show, :index], user: {except: [:destroy, :new, :create, :update, :edit, :toggle_status]}, site_admin: :all
 
-  # GET /blogs
   def index
     if logged_in?(:site_admin)
       @blogs = Blog.recent.page(params[:page]).per(5)
@@ -14,58 +13,48 @@ class BlogsController < ApplicationController
     @page_title = "My Portfolio Blog"
   end
 
-  # GET /blogs/1
   def show
     if logged_in?(:site_admin) || @blog.published?
       @blog = Blog.includes(:comments).friendly.find(params[:id])
       @comment = Comment.new
-      
       @page_title = @blog.title
       @seo_keywords = @blog.body
     else
-      redirect_to blogs_path, notice: "You are not authorized to access this page"
+      notice = "You are not authorized to access this page"
+      redirect_to blogs_path, notice: notice
     end
   end
 
-  # GET /blogs/new
   def new
     @blog = Blog.new
   end
 
-  # GET /blogs/1/edit
   def edit
   end
 
-  # POST /blogs
   def create
     @blog = Blog.new(blog_params)
-
-    respond_to do |format|
       if @blog.save
-        format.html { redirect_to @blog, notice: 'Your post is now live!' }
+        notice ='Your post is now created!'
+        redirect_to @blog, notice: notice
       else
-        format.html { render :new }
+        render :new 
       end
-    end
   end
 
-  # PATCH/PUT /blogs/1
   def update
-    respond_to do |format|
-      if @blog.update(blog_params)
-        format.html { redirect_to @blog, notice: 'Your post was successfully updated.' }
-      else
-        format.html { render :edit }
-      end
+    if @blog.update(blog_params)
+      notice = 'Your post was successfully updated.'
+      redirect_to @blog, notice: notice
+    else
+      render :edit
     end
   end
 
-  # DELETE /blogs/1
   def destroy
     @blog.destroy
-    respond_to do |format|
-      format.html { redirect_to blogs_url, notice: 'Post was removed.' }
-    end
+    notice = 'Post was removed.'
+    redirect_to blogs_url, notice: notice
   end
 
   def toggle_status
@@ -74,22 +63,22 @@ class BlogsController < ApplicationController
       elsif @blog.published?
         @blog.draft!
     end
-
-    redirect_to blogs_url, notice: 'Post status has been updated.'
+    notice = 'Post status has been updated.'
+    redirect_to blogs_url, notice: notice
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions. Added friendly id to find the friendly routes.
+
     def set_blog
       @blog = Blog.friendly.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def blog_params
       params.require(:blog).permit(:title, :body, :topic_id, :status)
     end
     
-     def set_sidebar_topics
-    @sidebar_topics = Topic.with_blogs
-  end
+    def set_sidebar_topics
+      @sidebar_topics = Topic.with_blogs
+    end
+
 end
