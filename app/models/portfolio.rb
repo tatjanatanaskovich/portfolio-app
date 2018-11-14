@@ -4,14 +4,12 @@ class Portfolio < ApplicationRecord
                                 allow_destroy: true,
                                 reject_if: lambda { |attrs| attrs['name'].blank? }
 
-  validates_presence_of :title, :body
-
   mount_uploader :thumb_image, PortfolioUploader
   mount_uploader :main_image, PortfolioUploader
 
-  def self.react
-    where(subtitle: 'React')
-  end
-
   scope :ruby_on_rails_portfolio_items, -> { where(subtitle: 'Ruby on Rails') }
+
+  scope :react, -> { where(subtitle: 'React') }
+
+  validates_presence_of :title, :body
 end

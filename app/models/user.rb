@@ -13,8 +13,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  validates_presence_of :name
-  
   has_many :comments, dependent: :destroy
 
   def first_name
@@ -25,4 +23,5 @@ class User < ApplicationRecord
     self.name.split.last
   end
 
+  validates_presence_of :name
 end
