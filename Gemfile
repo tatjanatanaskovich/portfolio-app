@@ -74,3 +74,4 @@ gem 'redis', '~> 4.0', '>= 4.0.1'
 gem 'redcarpet', '~> 3.4'
 gem 'coderay', '~> 1.1', '>= 1.1.2'
 gem "loofah", ">= 2.2.3"
+gem "rack", ">= 2.0.6"
